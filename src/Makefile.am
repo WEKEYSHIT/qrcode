@@ -13,3 +13,8 @@ QrCameraV2_CFLAGS+=-I ${top_builddir}/jpeg
 QrCameraV2_CFLAGS+=-I ${top_builddir}/qinya
 QrCameraV2_CFLAGS+=-std=c99
 
+release:${noinst_PROGRAMS}
+	arm-linux-gnueabi-strip ${noinst_PROGRAMS}
+
+pack:release
+	fput ${noinst_PROGRAMS}

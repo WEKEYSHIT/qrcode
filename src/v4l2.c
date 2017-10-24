@@ -106,7 +106,7 @@ static void v4l2_MmapBuffer()
         V_ERROR(ret, -1);
         video_bufs[__i].length = buf.length;
         // 映射内存
-        video_bufs[__i].data = mmap (NULL, buf.length,PROT_READ | PROT_WRITE , MAP_SHARED, fd, buf.m.offset);
+        video_bufs[__i].data = mmap (NULL, buf.length, PROT_READ | PROT_WRITE , MAP_SHARED, fd, buf.m.offset);
         ret = MAP_FAILED == video_bufs[__i].data ? -1 : 0;
         V_ERROR(ret, -2);
         printf("map %d:%x=>%p len:%d\n", __i, buf.m.offset, video_bufs[__i].data, video_bufs[__i].length);
